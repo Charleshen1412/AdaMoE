@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning</title>
+  <meta name="description" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning">
+  <meta name="keywords" content="AdaMoE">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning">
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1939" />
+  <meta property="og:image:height" content="772" />
+  <meta property="og:url" content="https://charleshen1412.github.io/AdaMoE/" />
+  <meta property="og:description" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning" />
+  <meta name="twitter:title" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning" />
+  <meta name="twitter:description" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning" />
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  
+</head>
+
+<body>
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">Expertise need not monopolize:<br><span style="font-size:2.4rem;">Action-Specialized Mixture of Experts for Vision-Language-Action Learning</span></h1>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="#">Weijie Shen</a><sup>1,2,8*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Yitian Liu</a><sup>1,3*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Yuhao Wu</a><sup>5,8*</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Zhixuan Liang</a><sup>6,4*&dagger;</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="#">Sijia Gu</a><sup>7</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Dehui Wang</a><sup>1,2,8</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Tian Nian</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Lei Xu</a><sup>3,10</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Yusen Qin</a><sup>8</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Jiangmiao Pang</a><sup>4</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Xinping Guan</a><sup>2,9</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="#">Xiaokang Yang</a><sup>1,3&dagger;</sup>,
+              </span>
+              <span class="author-block">
+                <a href="#">Yao Mu</a><sup>1,3,4&dagger;</sup>
+              </span>
+              
+            
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <sup><font size="-0.4">*</font></sup>Equal contribution&nbsp;&nbsp;
+                  <sup><font size="-0.4">&dagger;</font></sup>Corresponding authors.
+                </span>                
+                <br>
+                <span class="author-block"><sup>1</sup>MoE Key Lab of Artificial Intelligence, AI Institute, Shanghai Jiao Tong University,</span>
+                <span class="author-block"><sup>2</sup>School of Automation and Intelligent Sensing, Shanghai Jiao Tong University,</span>
+                <span class="author-block"><sup>3</sup>School of Computer Science, Shanghai Jiao Tong University,</span>
+                <span class="author-block"><sup>4</sup>Shanghai AI Laboratory,</span>
+                <span class="author-block"><sup>5</sup>Tsinghua Shenzhen International Graduate School, Tsinghua University,</span>
+                <span class="author-block"><sup>6</sup>The University of Hong Kong,</span>
+                <span class="author-block"><sup>7</sup>Tongji University,</span>
+                <span class="author-block"><sup>8</sup>D-Robotics,</span>
+                <span class="author-block"><sup>9</sup>Key Laboratory of System Control and Information Processing, Ministry of Education of China,</span>
+                <span class="author-block"><sup>10</sup>Shanghai Key Laboratory of Integrated Administration Technologies for Information Security</span>
+              </div>              
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2510.14300"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Video Link. -->
+                <!-- <span class="link-block">
+                  <a href="#" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                    </span>
+                    <span>Video</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="#"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Model Link. -->
+                <span class="link-block">
+                  <a href="#"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <img src="static/images/hf_icon.svg" />
+                    </span>
+                    <span>Models</span>
+                  </a>
+                </span>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- <section class="hero teaser teaser-video">
+    <div class="container is-max-desktop has-text-centered">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline width="80%">
+          <source src="#.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src=""
+                type="video/mp4">
+      </video>
+
+        <img src="static/images/AdaMoE_teaser.jpg" />
+
+        <h2 class="subtitle has-text-centered">
+            The introduction of AdaMoE
+        </h2>
+      </div>
+    </div>
+  </section> -->
+
+  <section class="section">
+    <div class="container is-max-desktop">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">The AdaMoE Model</h2>
+          <div class="content has-text-justified has-text-centered">
+            <img src="static/images/AdaMoE_model.png" />
+            <p>
+              Our <strong>AdaMoE</strong> framework builds upon a <strong>pretrained flow-matching Vision-Language-Action (VLA) model</strong> <a href="https://github.com/Physical-Intelligence/openpi">π<sub>0</sub></a>,
+              enhancing its action reasoning capacity through <strong>Mixture-of-Experts (MoE)</strong> integration.
+              Our pipeline (Fig. a) processes multi-modal inputs through a vision-language model and a transformer-based action expert to predict continuous control.
+              Each transformer block in the action expert incorporates an MoE layer (Fig. b) comprising <strong>shared experts</strong>,
+              which inherit the original FFN weights to capture general manipulation patterns,
+              and <strong>routed experts</strong>, dynamically selected by a router network to specialize in action-specific behaviors.
+            </p>
+            <p>
+              As shown in Fig. c, the <strong>vanilla MoE</strong> couples expert selection and weighting through a single router using top-k softmax gating. 
+              In contrast, our <strong>AdaMoE</strong> (Fig. d) introduces a decoupled architecture with an independent router for expert selection and a scale adapter for adaptive weighting.
+              This design alleviates optimization conflicts between load balancing and task specialization, enabling more flexible and expressive expert collaboration for robust robotic control.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+      <section class="section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column is-full-width">
+                <h2 class="title is-3">Experiments</h2>
+
+                <h3 class="title is-4">Evaluations on simulation benchmarks</h3>
+                <div class="content has-text-justified">
+                  <p>
+                    We select two simulation benchmarks to evaluate our method:
+                    <strong>(1)</strong> Four task suites from LIBERO dataset: LIBERO-Spatial, LIBERO-Object, LIBERO Goal and LIBERO-Long.
+                    <strong>(2)</strong> 19 tasks from RoboTwin 2.0. Each task dataset contains 100 expert trajectories from Clean environments
+                    and 400 expert trajectories from Domain Randomized environments.
+                  </p>
+                  <img src="static/images/simulation_results.png" />
+                  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <p>
+                        Our results demonstrate clear performance improvements of MoE over dense models,
+                        with particularly pronounced gains on large-scale datasets and long-horizon tasks.
+                        On the LIBERO benchmark, our <strong>AdaMoE</strong> achieves an average improvement of <strong>1.8%</strong> over the baseline π<sub>0</sub> model <strong>(94.2% → 96.0%)</strong> across all four task suites,
+                        as shown in Table 1. As detailed in Table 2, the improvements are more significant on the large-scale RoboTwin dataset,
+                        where we observe a substantial <strong>9.3%</strong> performance gain <strong>(40.4% → 49.7%)</strong> across 19 manipulation tasks with 9500 demonstrations.
+                      </p>
+                    </tr>
+                    <tr>
+                      <p>
+                        Notably, our method excels in both domain randomized tasks and long-horizon sequential tasks.
+                        In domain randomized scenarios with high environmental and object variation,
+                        the diverse expert specialization enables better handling of different lighting conditions, object properties, poses, and manipulation strategies across diverse configurations.
+                        The performance gains on long-horizon tasks are particularly pronounced, with our method achieving a <strong>92%</strong> success rate on LIBERO-Long,
+                        demonstrating that MoE architectures can effectively decompose complex sequential manipulation into specialized sub-skills handled by different experts.
+                      </p>
+                    </tr>
+                  </table>
+                </div>
+                
+                <br>
+                <h3 class="title is-4">Meaningful Expert Specialization</h3>
+                <div class="content has-text-justified">
+                  <img src="static/images/expert_visualization.png">
+                  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <p>
+                        Analysis of expert activation patterns reveals clear task-dependent specialization across different manipulation phases.
+                        The above figure shows the activation patterns of experts at certain layer L during various manipulation tasks,
+                        where expert usage intensity measures the proportion of tokens assigned to each expert at each frame.
+                        We observe distinct activation patterns that correlate with specific manipulation phases.
+                        For the same task “put both the alphabet soup and the tomato sauce”,
+                        all experts show similar token load distributions as illustrated in subfigures (a) and (b).
+                        Furthermore, across different tasks, experts exhibit consistent trends for certain atomic operations.
+                        For instance, in subfigures (a), (b), and (c), Expert 3 shows increased token utilization precisely when the policy performs target positioning and gripper release operations.
+                        The consistency of activation patterns across similar manipulation phases demonstrates that our experts capture meaningful behavioral primitives rather than arbitrary task divisions.
+                      </p>
+                    </tr>
+                  </table>
+                </div>
+
+                <br>
+                <h3 class="title is-4">Effectiveness of Our Decoupled Architecture Design</h3>
+                <div class="content has-text-justified">
+                  <table width="100%" align="center" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                      <img src="static/images/moe_architecture.png">
+                    </tr>
+                    <tr>
+                      <p>
+                        To validate our decoupled expert selection and weighting mechanism, we conduct comprehensive ablation studies on <strong>LIBERO</strong> comparing three architectural variants:
+                      </p>
+                      
+                      <ul style="margin-left: 8px; padding-left: 16px;">
+                        <li style="margin-bottom: 6px;">
+                          <strong>Vanilla MoE</strong>: Traditional MoE with coupled selection and weighting using softmax router outputs
+                        </li>
+                        <li style="margin-bottom: 6px;">
+                          <strong>Concatenated Scale Adapter MoE (CSMoE)</strong>: Router outputs and action tokens are concatenated and fed to a scale adapter that directly outputs expert weights
+                        </li>
+                        <li style="margin-bottom: 6px;">
+                          <strong>Additive Scale Adapter MoE (Our AdaMoE)</strong>: Expert weights are computed as the sum of router weights and scale adapter weights
+                        </li>
+                      </ul>                      
+                    </tr>
+                    <tr>
+                      <img src="static/images/router_design_result.png">
+                    </tr>
+                    <tr>
+                      <p>
+                        As shown in Table 3, our <strong>AdaMoE</strong> achieves the best overall performance across LIBERO task suites, with an average improvement of 1.6% over vanilla MoE (load balance).
+                        The concatenated approach shows moderate improvements, validating the importance of decoupling, while our additive design proves most effective.
+                      </p>
+                    </tr>
+                  </table>
+                </div>
+
+                <br>
+                <h3 class="title is-4">Real-World Experiments</h3>
+                <div class="content has-text-justified">
+                  <p>
+                    To validate the practical effectiveness of our <strong>AdaMoE</strong> approach,
+                    we conduct real-world robotic manipulation experiments using a dual-arm manipulation platform.
+                    Our experimental setup utilizes the <strong>ALOHA-Agilex</strong> system developed by AgileX Robotics,
+                    equipped with two Piper robotic arms that enable bimanual manipulation capabilities.
+                  </p>
+                  
+                  <p>
+                    We design four representative manipulation tasks that cover diverse manipulation skills and evaluate our method's performance in <strong>real-world scenarios</strong>:
+                  </p>
+                  
+                  <div style="display: flex; justify-content: space-between; gap: 12px; margin-top: 4px;">
+                    <div style="width: 48%;">
+                      <p style="margin: 4px 0;">
+                        <strong>1) Place Cup</strong>: Precise positioning<br>
+                        <strong>3) Click Bell</strong>: Coordinated activation
+                      </p>
+                    </div>
+                    <div style="width: 48%;">
+                      <p style="margin: 4px 0;">
+                        <strong>2) Stack Plate</strong>: Stable stacking<br>
+                        <strong>4) Adjust Bottle</strong>: Fine orientation
+                      </p>
+                    </div>
+                  </div>
+                  
+                </div>
+                <img src="static/images/real_world_results.png" />
+                <div class="content has-text-justified">
+                  <p>
+                    Table 5 presents the success rates of our <strong>AdaMoE</strong> compared to the π<sub>0</sub> baseline across all four real-world manipulation tasks.
+                    Our method demonstrates consistent improvements across all tasks, with particularly notable gains in complex manipulation scenarios requiring precise coordination.
+                  </p>
+                </div>
+                <div class="content has-text-justified">
+                  <p>
+                    Below are videos of our <strong>AdaMoE</strong> model demonstrating various robust behaviors across the four representative manipulation tasks. (Videos are sped up by 2×.)
+                  </p>
+                </div>
+                <div class="columns is-vcentered interpolation-panel">
+                  <div class="column  has-text-centered">
+                    <h5>Place Cup</h5>
+                    <video autoplay controls muted loop playsinline width="80%">
+                      <source src="static/videos/Place_Cup.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="column  has-text-centered">
+                    <h5>Stack Plate</h5>
+                    <video autoplay controls muted loop playsinline width="80%">
+                      <source src="static/videos/Stack_Plate.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+                <div class="columns is-vcentered interpolation-panel">
+                  <div class="column  has-text-centered">
+                    <h5>Click Bell</h5>
+                    <video autoplay controls muted loop playsinline width="80%">
+                      <source src="static/videos/Click_Bell.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="column  has-text-centered">
+                    <h5>Adjust Bottle</h5>
+                    <video autoplay controls muted loop playsinline width="80%">
+                      <source src="static/videos/Adjust_Bottle.mp4" type="video/mp4">
+                    </video>
+                  </div>
+                </div>
+
+                <br><br>
+            </div>
+          </div>
+      </section>
+
+
+      <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+          <h2 class="title">BibTeX</h2>
+          <pre><code>@misc{shen2025expertiseneedmonopolizeactionspecialized,
+            title={Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning}, 
+            author={Weijie Shen and Yitian Liu and Yuhao Wu and Zhixuan Liang and Sijia Gu and Dehui Wang and Tian Nian and Lei Xu and Yusen Qin and Jiangmiao Pang and Xinping Guan and Xiaokang Yang and Yao Mu},
+            year={2025},
+            eprint={2510.14300},
+            archivePrefix={arXiv},
+            primaryClass={cs.RO},
+            url={https://arxiv.org/abs/2510.14300}, 
+      }</code></pre>
+        </div>
+      </section>
+
+
+      <footer class="footer">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column is-8">
+              <div class="content">
+                <p> Website borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a> under a <a
+                    href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0
+                    International</a>
+                </p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+</body>
+
+</html>
