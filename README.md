@@ -1,2 +1,2 @@
-# AdaMoE
-AdaMoE Project Website
+# AdaMoE-VLA
+AdaMoE-VLA Project Website

@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning</title>
   <meta name="description" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning">
-  <meta name="keywords" content="AdaMoE">
+  <meta name="keywords" content="AdaMoE-VLA">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta property="og:title" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning">
   <meta property="og:type" content="website">
@@ -13,7 +13,7 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:width" content="1939" />
   <meta property="og:image:height" content="772" />
-  <meta property="og:url" content="https://charleshen1412.github.io/AdaMoE/" />
+  <meta property="og:url" content="https://charleshen1412.github.io/AdaMoE-VLA/" />
   <meta property="og:description" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning" />
   <meta name="twitter:title" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning" />
   <meta name="twitter:description" content="Expertise need not monopolize: Action-Specialized Mixture of Experts for Vision-Language-Action Learning" />
@@ -128,7 +128,7 @@
                 </span> -->
                 <!-- Code Link. -->
                 <span class="link-block">
-                  <a href="#"
+                  <a href="https://github.com/swjTheDad/AdaMoE-VLA"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -174,10 +174,10 @@
                 type="video/mp4">
       </video>
 
-        <img src="static/images/AdaMoE_teaser.jpg" />
+        <img src="static/images/AdaMoE-VLA_teaser.jpg" />
 
         <h2 class="subtitle has-text-centered">
-            The introduction of AdaMoE
+            The introduction of AdaMoE-VLA
         </h2>
       </div>
     </div>
@@ -192,11 +192,11 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column is-full-width">
-          <h2 class="title is-3">The AdaMoE Model</h2>
+          <h2 class="title is-3">The AdaMoE-VLA Model</h2>
           <div class="content has-text-justified has-text-centered">
-            <img src="static/images/AdaMoE_model.png" />
+            <img src="static/images/AdaMoE-VLA_model.png" />
             <p>
-              Our <strong>AdaMoE</strong> framework builds upon a <strong>pretrained flow-matching Vision-Language-Action (VLA) model</strong> <a href="https://github.com/Physical-Intelligence/openpi">π<sub>0</sub></a>,
+              Our <strong>AdaMoE-VLA</strong> framework builds upon a <strong>pretrained flow-matching Vision-Language-Action (VLA) model</strong> <a href="https://github.com/Physical-Intelligence/openpi">π<sub>0</sub></a>,
               enhancing its action reasoning capacity through <strong>Mixture-of-Experts (MoE)</strong> integration.
               Our pipeline (Fig. a) processes multi-modal inputs through a vision-language model and a transformer-based action expert to predict continuous control.
               Each transformer block in the action expert incorporates an MoE layer (Fig. b) comprising <strong>shared experts</strong>,
@@ -205,7 +205,7 @@
             </p>
             <p>
               As shown in Fig. c, the <strong>vanilla MoE</strong> couples expert selection and weighting through a single router using top-k softmax gating. 
-              In contrast, our <strong>AdaMoE</strong> (Fig. d) introduces a decoupled architecture with an independent router for expert selection and a scale adapter for adaptive weighting.
+              In contrast, our <strong>AdaMoE-VLA</strong> (Fig. d) introduces a decoupled architecture with an independent router for expert selection and a scale adapter for adaptive weighting.
               This design alleviates optimization conflicts between load balancing and task specialization, enabling more flexible and expressive expert collaboration for robust robotic control.
             </p>
           </div>
@@ -234,7 +234,7 @@
                       <p>
                         Our results demonstrate clear performance improvements of MoE over dense models,
                         with particularly pronounced gains on large-scale datasets and long-horizon tasks.
-                        On the LIBERO benchmark, our <strong>AdaMoE</strong> achieves an average improvement of <strong>1.8%</strong> over the baseline π<sub>0</sub> model <strong>(94.2% → 96.0%)</strong> across all four task suites,
+                        On the LIBERO benchmark, our <strong>AdaMoE-VLA</strong> achieves an average improvement of <strong>1.8%</strong> over the baseline π<sub>0</sub> model <strong>(94.2% → 96.0%)</strong> across all four task suites,
                         as shown in Table 1. As detailed in Table 2, the improvements are more significant on the large-scale RoboTwin dataset,
                         where we observe a substantial <strong>9.3%</strong> performance gain <strong>(40.4% → 49.7%)</strong> across 19 manipulation tasks with 9500 demonstrations.
                       </p>
@@ -292,7 +292,7 @@
                           <strong>Concatenated Scale Adapter MoE (CSMoE)</strong>: Router outputs and action tokens are concatenated and fed to a scale adapter that directly outputs expert weights
                         </li>
                         <li style="margin-bottom: 6px;">
-                          <strong>Additive Scale Adapter MoE (Our AdaMoE)</strong>: Expert weights are computed as the sum of router weights and scale adapter weights
+                          <strong>Additive Scale Adapter MoE (Our AdaMoE-VLA)</strong>: Expert weights are computed as the sum of router weights and scale adapter weights
                         </li>
                       </ul>                      
                     </tr>
@@ -301,7 +301,7 @@
                     </tr>
                     <tr>
                       <p>
-                        As shown in Table 3, our <strong>AdaMoE</strong> achieves the best overall performance across LIBERO task suites, with an average improvement of 1.6% over vanilla MoE (load balance).
+                        As shown in Table 3, our <strong>AdaMoE-VLA</strong> achieves the best overall performance across LIBERO task suites, with an average improvement of 1.6% over vanilla MoE (load balance).
                         The concatenated approach shows moderate improvements, validating the importance of decoupling, while our additive design proves most effective.
                       </p>
                     </tr>
@@ -312,7 +312,7 @@
                 <h3 class="title is-4">Real-World Experiments</h3>
                 <div class="content has-text-justified">
                   <p>
-                    To validate the practical effectiveness of our <strong>AdaMoE</strong> approach,
+                    To validate the practical effectiveness of our <strong>AdaMoE-VLA</strong> approach,
                     we conduct real-world robotic manipulation experiments using a dual-arm manipulation platform.
                     Our experimental setup utilizes the <strong>ALOHA-Agilex</strong> system developed by AgileX Robotics,
                     equipped with two Piper robotic arms that enable bimanual manipulation capabilities.
@@ -341,13 +341,13 @@
                 <img src="static/images/real_world_results.png" />
                 <div class="content has-text-justified">
                   <p>
-                    Table 5 presents the success rates of our <strong>AdaMoE</strong> compared to the π<sub>0</sub> baseline across all four real-world manipulation tasks.
+                    Table 5 presents the success rates of our <strong>AdaMoE-VLA</strong> compared to the π<sub>0</sub> baseline across all four real-world manipulation tasks.
                     Our method demonstrates consistent improvements across all tasks, with particularly notable gains in complex manipulation scenarios requiring precise coordination.
                   </p>
                 </div>
                 <div class="content has-text-justified">
                   <p>
-                    Below are videos of our <strong>AdaMoE</strong> model demonstrating various robust behaviors across the four representative manipulation tasks. (Videos are sped up by 2×.)
+                    Below are videos of our <strong>AdaMoE-VLA</strong> model demonstrating various robust behaviors across the four representative manipulation tasks. (Videos are sped up by 2×.)
                   </p>
                 </div>
                 <div class="columns is-vcentered interpolation-panel">
